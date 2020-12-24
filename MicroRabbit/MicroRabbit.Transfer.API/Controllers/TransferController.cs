@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 namespace MicroRabbit.Transfer.API.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     public class TransferController : ControllerBase
     {
         private readonly ITransferService _transferService;

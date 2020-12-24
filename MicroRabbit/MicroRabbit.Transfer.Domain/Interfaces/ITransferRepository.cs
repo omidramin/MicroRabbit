@@ -8,7 +8,6 @@ namespace MicroRabbit.Transfer.Domain.Interfaces
     public interface ITransferRepository
     {
         IEnumerable<TransferLog> GetTransferLogs();
-        //void Add(TransferLog transferLog);
-        IEnumerable<TransferLog> Add(TransferLog transferLog);
+        void Add(TransferLog transferLog);
     }
 }

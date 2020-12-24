@@ -15,39 +15,14 @@ namespace MicroRabbit.Transfer.Data.Repository
         {
             _db = db;
         }
-
-        //void ITransferRepository.Add(TransferLog transferLog)
-        //{
-        //    var transfer = new List<TransferLog>();
-        //    transfer.Add(new TransferLog()
-        //    {
-        //        FromAccount = transferLog.FromAccount,
-        //        ToAccount = transferLog.ToAccount,
-        //        TransferAmount = transferLog.TransferAmount
-        //    });
-        //     return transfer;
-        //}
-
         public IEnumerable<TransferLog> GetTransferLogs()
         {
             return _db.TransferLogs;
         }
-
-        public IEnumerable<TransferLog> Add(TransferLog transferLog)
+        public void Add(TransferLog transferLog)
         {
-            var transfer = new List<TransferLog>();
-            transfer.Add(new TransferLog()
-            {
-                FromAccount = transferLog.FromAccount,
-                ToAccount = transferLog.ToAccount,
-                TransferAmount = transferLog.TransferAmount
-            });
-            return transfer;
+            _db.TransferLogs.Add(transferLog);
+            _db.SaveChanges();
         }
-
-        //void ITransferRepository.Add(TransferLog transferLog)
-        //{
-        //    return transferLog;
-        //}
     }
 }
